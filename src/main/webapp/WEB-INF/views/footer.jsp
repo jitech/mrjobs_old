@@ -9,7 +9,7 @@
 </head>
 <body>
   
-	FOOTER
+	© 2018 Developerworks
 
 </body>
 </html>

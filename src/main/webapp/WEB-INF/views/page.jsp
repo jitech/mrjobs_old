@@ -18,29 +18,36 @@
 <body class="body">
 	
 	<div id="header" class="header"> 	
-		<center><jsp:include page="header.jsp" /></center>		
+		<center>
+			 <div class="header-content">
+			 	<jsp:include page="header.jsp" />
+			 </div>
+		</center>		
 	</div>
 		
 	<div id="content" class="content"> 	
 		
 		<center>
+		<div class="content-content">
 		<c:choose>
-			<c:when test="${page == 'index'}">
-        		<jsp:include page="index.jsp" />
+			<c:when test="${page != null}">
+        		<jsp:include page="${page}.jsp" />
    			</c:when>
-			<c:when test="${page == 'login'}">
-        		<jsp:include page="login.jsp" />
-   			</c:when>  
     		<c:otherwise>
         		<jsp:include page="not-found.jsp" />
     		</c:otherwise> 	
 		</c:choose>
+		</div>
 		</center>
 		
 	</div>	
 		
 	<div id="footer" class="footer"> 	
-		<center><jsp:include page="footer.jsp" /></center>	
+		<center>
+			<div class="footer-content">
+				<jsp:include page="footer.jsp" />
+			</div>
+		</center>	
 	</div>
 	
 </body>

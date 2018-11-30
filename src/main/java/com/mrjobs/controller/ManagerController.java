@@ -14,20 +14,21 @@ import com.mrjobs.enums.PageEnum;
 public class ManagerController extends GenericController{
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	private ModelAndView index(Model model) throws Exception {	
-		model.addAttribute(loadAttribute(AttributeTypeEnum.MESSAGE), "Hi! Welcome.");
-		model.addAttribute(loadAttribute(AttributeTypeEnum.PAGE), loadPage(PageEnum.INDEX));
+	private ModelAndView index(Model model) throws Exception {		
+		model = setValues(model, AttributeTypeEnum.MESSAGE, "Hi! Welcome.");
+		model = setValues(model, AttributeTypeEnum.PAGE, PageEnum.INDEX.value);
 		return new ModelAndView("/page");
 	}
 	
 	@RequestMapping(value = "/{page}", method = RequestMethod.GET)
 	private ModelAndView loadPage(@PathVariable("page") String page, Model model) throws Exception {
 		
-		if(PageEnum.valueOf(page) != null) {
-			model.addAttribute(loadAttribute(AttributeTypeEnum.PAGE), loadPage(PageEnum.valueOf(page)));
-		}else {
-			model.addAttribute(loadAttribute(AttributeTypeEnum.PAGE), loadPage(PageEnum.NOT_FOUND));
-			
+		PageEnum pageEnum = loadPage(page);
+		
+		if(pageEnum != null) {		
+			model = setValues(model, AttributeTypeEnum.PAGE, pageEnum.value);			
+		}else {		
+			model = setValues(model, AttributeTypeEnum.PAGE, PageEnum.NOT_FOUND.value);			
 		}
 		
 		return new ModelAndView("/page");
