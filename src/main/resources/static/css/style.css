@@ -1,0 +1,30 @@
+.body{
+	font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif; 
+	color: #1d2129; 
+	font-size: 16px; 
+	margin: 0px;
+}
+
+.header{
+	width: 100%; 
+	position: fixed; 
+	top: 0; 
+	display: table; 
+	background: #FFF;
+}
+
+.content{
+	 width: 100%; 
+	 display: table; 
+	 margin-top: 50px; 
+	 margin-bottom: 100px;
+	 background: #FFF;
+}
+
+.footer{
+	width: 100%; 
+	position: fixed; 
+	bottom: 0; 
+	display: table; 
+	background: #FFF;
+}
